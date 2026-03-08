@@ -1,13 +1,30 @@
-/* style.css - professional oil and gas corporate design */
-:root{--navy:#0a2540;--slate:#1b2a44;--brass:#b0892b;--text:#1b1b1b;--bg:#f4f5f7}
-*{box-sizing:border-box}html,body{margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
-header{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:var(--navy);color:#fff}
-header .logo{font-weight:700;font-size:24px;letter-spacing:.5px}
-nav a{color:#fff;text-decoration:none;margin:0 12px;font-weight:600}
-#hero{padding:80px 20px;background:linear-gradient(#0b1d3a,#1a2b49);color:#fff;text-align:left}
-#hero h1{font-size:2.4rem;margin:0 0 10px}
-#about,#services,#contact{max-width:980px;margin:40px auto;padding:0 20px}
-h2{font-size:2rem;color:var(--navy)}
-ul{margin:0;padding-left:20px}
-footer{text-align:center;padding:20px;color:#666}
-@media (max-width:600px){header{flex-direction:column;align-items:flex-start}#hero{padding:40px 20px}#hero h1{font-size:2rem}}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600;700&display=swap');
+:root{--navy:#002855;--gold:#B8860B;--white:#FFFFFF;--dark:#0A1628;--bg:#f5f6f8}
+*{box-sizing:border-box}html,body{margin:0;padding:0;font-family:'Open Sans',Arial,sans-serif;background:var(--bg);color:#111}
+.site-header{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:var(--navy);color:var(--white);position:sticky;top:0;z-index:1000}
+.site-header .logo{font-family:'Montserrat', sans-serif;font-weight:800;letter-spacing:.5px}
+.site-header .nav a{color:#fff;text-decoration:none;margin:0 12px;font-weight:600}
+.hero{position:relative;min-height:60vh;background:linear-gradient(#0A1628,#0b1f3a);color:#fff;overflow:hidden}
+.hero:before{content:'';position:absolute;left:0;top:0;width:100%;height:100%;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'><defs><pattern id='p' width='320' height='320' patternUnits='userSpaceOnUse' viewBox='0 0 320 320'><path d='M0 320 L320 0' stroke='%23222222' stroke-width='1'/></pattern></defs><rect width='100%' height='100%"fill='black' opacity='0.25'/><rect width='100%' height='100%' fill='url(%23p)' opacity='0.25'/></svg>") center/cover no-repeat; filter: saturate(80%)}
+.hero .overlay{position:absolute;inset:0;background:rgba(0,0,0,.35)}
+.hero-inner{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:60px 20px}
+.hero h1{font-family:'Montserrat', sans-serif;font-size:48px;line-height:1.1;margin:0 0 12px}
+.hero p{font-size:18px;opacity:.95}
+.cta{display:inline-block;margin-top:16px;padding:12px 20px;background:var(--gold);color:#fff;text-decoration:none;border-radius:6px}
+.section{padding:60px 20px}
+.section.white-section{background:#fff}
+.container{max-width:1080px;margin:0 auto}
+h2{font-family:'Montserrat', sans-serif;font-size:32px;margin:0 0 14px;color:var(--navy)}
+.section p{font-size:16px;line-height:1.75}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:20px;box-shadow:0 2px 6px rgba(0,0,0,.05);transition:transform .2s ease, box-shadow .2s ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 6px 14px rgba(0,0,0,.08)}
+.presence-grid{display:flex;gap:20px}
+.presence-item{flex:1;background:#fff;border:1px solid #eee;padding:20px;border-radius:8px}
+.contact-form{display:flex;flex-direction:column;gap:12px;max-width:600px}
+.contact-form input,.contact-form textarea{padding:12px;border:1px solid #ccc;border-radius:6px;font-family:'Open Sans',sans-serif}
+.contact-form button{padding:12px 18px;border:none;background:var(--navy);color:#fff;font-weight:700;border-radius:6px}
+.site-footer{background:#111;color:#ddd;padding:20px 0;text-align:center}
+@media (max-width: 900px){.cards{grid-template-columns:1fr 1fr}.presence-grid{flex-direction:column}
+}
+@media (max-width: 600px){.cards{grid-template-columns:1fr}.hero h1{font-size:28px}}

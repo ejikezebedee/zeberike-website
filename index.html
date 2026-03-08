@@ -1,44 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zeberike Crude Oil Marketing Nig LTD</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zeberike Crude Oil Marketing Nig LTD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <div class="logo">Zeberike</div>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-    <section id="hero">
-        <h1>Precision in Global Crude Oil Marketing and Logistics</h1>
-        <p>Powering Nigeria's energy sector with international reach.</p>
-    </section>
-    <section id="about">
-        <h2>About Us</h2>
-        <p>Zeberike Crude Oil Marketing Nig LTD operates from Nigeria with European operations based in Cologne, Germany. Under the leadership of Chairman Zebedee Ejike Korie, we provide top-tier services to the global energy market.</p>
-    </section>
-    <section id="services">
-        <h2>Our Services</h2>
-        <ul>
-            <li>Crude oil procurement and marketing</li>
-            <li>Strategic logistics</li>
-            <li>Supply chain optimization</li>
-            <li>Tender intelligence</li>
-        </ul>
-    </section>
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Operating out of Nigeria & Cologne, Germany.</p>
-        <p>Chairman: Zebedee Ejike Korie</p>
-    </section>
-    <footer>
-        <p>&copy; 2026 Zeberike Crude Oil Marketing Nig LTD. All Rights Reserved.</p>
-    </footer>
+  <header class="site-header">
+    <div class="logo">Zeberike</div>
+    <nav class="nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#presence">Presence</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="overlay"></div>
+    <div class="hero-inner">
+      <h1>Precision in Global Crude Oil Marketing and Logistics</h1>
+      <p>Nigeria-based, European-anchored operations delivering trusted energy solutions.</p>
+      <a href="#contact" class="cta">Contact Us</a>
+    </div>
+  </section>
+
+  <section id="about" class="section white-section">
+    <div class="container">
+      <h2>About Zeberike</h2>
+      <p>Zeberike Crude Oil Marketing Nig LTD is a CAC-registered, 100% Nigerian owned company with headquarters in Nigeria and European operations in Cologne, Germany. Under the leadership of Chairman Zebedee Ejike Korie, we are deeply committed to Nigerian Content development while maintaining strict international-grade performance across crude procurement, logistics, supply chain optimization, and tender intelligence.</p>
+    </div>
+  </section>
+
+  <section id="numbers" class="section dark-section">
+    <div class="container cards stats-grid">
+       <div class="stat-card">
+         <h3 class="stat-num">100%</h3>
+         <p>Nigerian Owned</p>
+       </div>
+       <div class="stat-card">
+         <h3 class="stat-num">2</h3>
+         <p>Strategic Global Hubs (Nigeria, Germany)</p>
+       </div>
+       <div class="stat-card">
+         <h3 class="stat-num">24/7</h3>
+         <p>AI-Powered Operations Support</p>
+       </div>
+    </div>
+  </section>
+
+  <section id="services" class="section white-section">
+    <div class="container">
+      <h2>Services</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Crude Oil Procurement</h3>
+          <p>End-to-end procurement and marketing of crude with risk-managed, highly transparent processes tailored for global energy security.</p>
+        </div>
+        <div class="card">
+          <h3>Strategic Logistics</h3>
+          <p>Unmatched end-to-end logistics with optimized routing, secure transit, and rigorous safety standards.</p>
+        </div>
+        <div class="card">
+          <h3>Supply Chain Optimization</h3>
+          <p>Advanced, AI-integrated supply chain strategies engineered to reduce costs and drastically increase operational reliability.</p>
+        </div>
+        <div class="card">
+          <h3>Tender Intelligence</h3>
+          <p>Expert competitive intelligence, deep tender discovery, and value-driven bid formulation for major global contracts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="presence" class="section light-grey-section">
+    <div class="container">
+      <h2>International Presence</h2>
+      <div class="presence-grid">
+        <div class="presence-item">
+          <h3>Nigeria</h3>
+          <p>Global Headquarters and primary operational theater. Executing strategic local procurement and direct industry liaison.</p>
+        </div>
+        <div class="presence-item">
+          <h3>Cologne, Germany</h3>
+          <p>European strategic operations center. Managing international trade corridors and global tender tracking.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section white-section">
+    <div class="container">
+      <h2>Contact</h2>
+      <form class="contact-form" action="#" method="post">
+        <input type="text" name="name" placeholder="Your Full Name" required />
+        <input type="email" name="email" placeholder="Corporate Email Address" required />
+        <input type="text" name="subject" placeholder="Inquiry Subject" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="cta">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="logo">Zeberike Crude Oil Marketing Nig LTD</div>
+      <div class="footer-meta">
+        <p>Nigeria HQ • Cologne, Germany</p>
+        <p>Chairman: Zebedee Ejike Korie | CAC Registered • 100% Nigerian owned</p>
+        <p class="copyright">&copy; 2026 Zeberike. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
