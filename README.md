@@ -1,15 +1,34 @@
-# Zeberike Website
+# Zeberike Group — Corporate Website
 
-Initial README for Zeberike Crude Oil Marketing Nig LTD website.
+Official website for the Zeberike Group corporate identity.
 
-Files:
-- index.html
-- style.css
-- assets/ (optional)
-- README.md
+## Companies
+- **Zebedee Korie Nig Ltd** (RC 1729997) — Technology, AI & Business Services
+- **Zeberike Crude Oil Marketing Nig Ltd** (RC 1709207) — Energy, Oil & Gas Services
 
-Build notes:
-- Corporate, clean design inspired by Seplat/Eroton
-- Location: Nigeria + Germany (Cologne)
-- Services: crude procurement, logistics, supply chain, tender intelligence
-- Tagline: Precision in Global Crude Oil Marketing and Logistics
+## Tech Stack
+- React 18
+- Vite 5
+- Tailwind CSS 3
+- Framer Motion 11
+- Lucide React
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+```
+
+## Deployment
+Deploy the `dist/` folder to Hostinger or any static host. Point `zeberike.com` DNS to hosting provider.
+
+## Contact
+- Email: info@zeberike.com
+- Website: https://zeberike.com
