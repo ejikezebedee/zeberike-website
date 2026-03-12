@@ -403,6 +403,7 @@ function TextArea({ placeholder }) {
 
 export default function ZeberikeGroupCorporateSite() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [formStatus, setFormStatus] = useState({ loading: false, success: false, error: "" });
   const [page, setPage] = useState("home");
 
   const serviceMap = useMemo(
@@ -853,15 +854,15 @@ export default function ZeberikeGroupCorporateSite() {
       <Surface className="p-8 sm:p-10">
         {sectionTitle(
           "Contact",
-          "Corporate contact, consultation intake, and direct business routing.",
-          "This page supports general enquiries, direct division-level contact, WhatsApp CTA, and a structured request flow for new consultations."
+          "Get in touch with the Zeberike Group team.",
+          "We respond to all enquiries within 1 business day. You can also reach us directly via WhatsApp or email."
         )}
         <div className="mt-8 space-y-5 text-sm text-slate-300">
           <div className="flex items-start gap-3">
             <Mail className="mt-1 h-4 w-4 text-amber-300" />
             <div>
               <p className="font-medium text-white">Email</p>
-              <p>info@zeberikegroup.com</p>
+              <p>info@zeberike.com</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
@@ -889,28 +890,40 @@ export default function ZeberikeGroupCorporateSite() {
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white">Send a message</h2>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            <Input placeholder="Full name" />
-            <Input placeholder="Company name" />
+            <input id="contact-name" type="text" placeholder="Full name" className="w-full rounded-xl border border-white/10 bg-slate-950/60 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500 focus:border-amber-400/40" />
+            <input id="contact-company" type="text" placeholder="Company name" className="w-full rounded-xl border border-white/10 bg-slate-950/60 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500 focus:border-amber-400/40" />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            <Input placeholder="Email address" type="email" />
-            <Input placeholder="Phone number" />
+            <input id="contact-email" type="email" placeholder="Email address" className="w-full rounded-xl border border-white/10 bg-slate-950/60 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500 focus:border-amber-400/40" />
+            <input id="contact-phone" type="text" placeholder="Phone number" className="w-full rounded-xl border border-white/10 bg-slate-950/60 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500 focus:border-amber-400/40" />
           </div>
-          <Select>
-            <option>Select company</option>
-            {companies.map((company) => (
-              <option key={company.key}>{company.name}</option>
-            ))}
-          </Select>
-          <Select>
+          <select id="contact-service" className="w-full rounded-xl border border-white/10 bg-slate-950/60 px-4 py-3 text-sm text-white outline-none focus:border-amber-400/40">
             <option>Select service</option>
             {services.map((service) => (
               <option key={service.slug}>{service.name}</option>
             ))}
-          </Select>
-          <TextArea placeholder="Project details or business need" />
+          </select>
+          <textarea id="contact-message" rows={5} placeholder="Project details or business need" className="w-full rounded-xl border border-white/10 bg-slate-950/60 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500 focus:border-amber-400/40" />
+          {formStatus.success && (
+            <p className="rounded-xl bg-green-500/10 border border-green-500/30 px-4 py-3 text-sm text-green-400">✅ Message sent! We will be in touch within 1 business day.</p>
+          )}
+          {formStatus.error && (
+            <p className="rounded-xl bg-red-500/10 border border-red-500/30 px-4 py-3 text-sm text-red-400">{formStatus.error}</p>
+          )}
           <div className="flex flex-wrap gap-3">
-            <Button>Submit enquiry</Button>
+            <Button onClick={() => {
+              const name = document.getElementById("contact-name")?.value || "";
+              const company = document.getElementById("contact-company")?.value || "";
+              const email = document.getElementById("contact-email")?.value || "";
+              const phone = document.getElementById("contact-phone")?.value || "";
+              const service = document.getElementById("contact-service")?.value || "";
+              const message = document.getElementById("contact-message")?.value || "";
+              if (!name || !email) { setFormStatus({ loading: false, success: false, error: "Please enter your name and email." }); return; }
+              setFormStatus({ loading: true, success: false, error: "" });
+              fetch("/mail.php", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ name, company, email, phone, service, message }) })
+                .then(r => r.json()).then(d => { if (d.success) { setFormStatus({ loading: false, success: true, error: "" }); } else { setFormStatus({ loading: false, success: false, error: d.message || "Send failed. Please email info@zeberike.com directly." }); } })
+                .catch(() => setFormStatus({ loading: false, success: false, error: "Network error. Please email info@zeberike.com directly." }));
+            }}>{formStatus.loading ? "Sending..." : "Submit enquiry"}</Button>
             <Button variant="ghost" href="https://wa.me/4917640554575?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20services">WhatsApp us</Button>
           </div>
         </div>
