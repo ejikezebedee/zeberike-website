@@ -26,6 +26,9 @@ import {
   Factory,
   Landmark,
   MessageCircle,
+  Github,
+  ExternalLink,
+  CheckCircle2,
 } from "lucide-react";
 
 const companies = [
@@ -271,6 +274,16 @@ const industries = [
 
 const insights = [
   {
+    slug: "zeberike-group-github-build-portfolio",
+    title: "Zeberike Group Build Portfolio: AI, Security, Automation, and Business Systems",
+    category: "Technology",
+    date: "June 2026",
+    excerpt:
+      "A public overview of selected Zeberike Group software projects and GitHub releases, from AI memory infrastructure to defensive security tools and business automation systems.",
+    featured: true,
+  },
+  {
+    slug: "ai-outsourcing-models",
     title: "AI Outsourcing Models for High-Growth Nigerian Businesses",
     category: "Technology",
     date: "March 2026",
@@ -278,6 +291,7 @@ const insights = [
       "How structured AI-enabled service models improve speed, support quality, and commercial efficiency.",
   },
   {
+    slug: "lng-vendor-readiness",
     title: "Commercial Readiness in Nigeria’s LNG Vendor Ecosystem",
     category: "Energy",
     date: "March 2026",
@@ -285,11 +299,99 @@ const insights = [
       "Positioning vendors for stronger participation through capability visibility and better engagement workflows.",
   },
   {
+    slug: "nigeria-market-entry",
     title: "Entering Nigeria with the Right Local Business Facilitation Layer",
     category: "Market Entry",
     date: "March 2026",
     excerpt:
       "Why local coordination, stakeholder mapping, and execution support matter for market entry success.",
+  },
+];
+
+const githubHighlights = [
+  {
+    name: "Cognition Store",
+    repo: "cognition-store",
+    url: "https://github.com/ejikezebedee/cognition-store",
+    summary:
+      "Local-first memory and simulation infrastructure for auditable agent systems, evidence indexing, graph building, and controlled persona loops.",
+  },
+  {
+    name: "ScaffoldGuard",
+    repo: "ScaffoldGuard",
+    url: "https://github.com/ejikezebedee/ScaffoldGuard",
+    summary:
+      "A zero-dependency scaffolding security engine for AI agents and developer teams, focused on malicious templates, path traversal, signed locks, and audit traces.",
+  },
+  {
+    name: "Polyphony",
+    repo: "proj-033-polyphony",
+    url: "https://github.com/ejikezebedee/proj-033-polyphony",
+    summary:
+      "A private local AI mesh concept for ordinary hardware, designed around practical agent coordination and local-first execution.",
+  },
+  {
+    name: "Enterprise Hardening Toolkit",
+    repo: "enterprise-hardening-toolkit",
+    url: "https://github.com/ejikezebedee/enterprise-hardening-toolkit",
+    summary:
+      "Defensive endpoint hardening audit and reporting toolkit for practical security checks and structured remediation reporting.",
+  },
+  {
+    name: "Govee Local Control Kit",
+    repo: "govee-local-control-kit",
+    url: "https://github.com/ejikezebedee/govee-local-control-kit",
+    summary:
+      "Local control tooling for smart-device operations, built around direct practical utility instead of cloud-only workflows.",
+  },
+  {
+    name: "Smart Reminder Assistant",
+    repo: "smart-reminder-assistant",
+    url: "https://github.com/ejikezebedee/smart-reminder-assistant",
+    summary:
+      "A productivity assistant project focused on reminders, operational follow-through, and useful automation for everyday work.",
+  },
+  {
+    name: "Local Asset Optimizer",
+    repo: "local-asset-optimizer",
+    url: "https://github.com/ejikezebedee/local-asset-optimizer",
+    summary:
+      "Local optimization tooling for managing assets and improving practical operating efficiency.",
+  },
+  {
+    name: "DevOps Partner",
+    repo: "devops-partner",
+    url: "https://github.com/ejikezebedee/devops-partner",
+    summary:
+      "DevOps-oriented project work supporting automation, delivery discipline, and engineering operations.",
+  },
+  {
+    name: "IdentityGuard",
+    repo: "IdentityGuard",
+    url: "https://github.com/ejikezebedee/IdentityGuard",
+    summary:
+      "Digital identity product direction under the Zeberike public GitHub portfolio.",
+  },
+  {
+    name: "Zeberike AgriSmart Pro",
+    repo: "Zeberike-AgriSmart-Pro",
+    url: "https://github.com/ejikezebedee/Zeberike-AgriSmart-Pro",
+    summary:
+      "Agricultural assistant concept for small farmers, supporting the group’s practical technology-for-real-economy direction.",
+  },
+  {
+    name: "Zeberike LandSecure Pro",
+    repo: "Zeberike-LandSecure-Pro",
+    url: "https://github.com/ejikezebedee/Zeberike-LandSecure-Pro",
+    summary:
+      "Digital land-rights product concept focused on GPS-supported property records and local trust infrastructure.",
+  },
+  {
+    name: "Zeberike Herbal",
+    repo: "Zeberike-Herbal",
+    url: "https://github.com/ejikezebedee/Zeberike-Herbal",
+    summary:
+      "A Zeberike product direction exploring herbal and health-related digital support concepts.",
   },
 ];
 
@@ -649,7 +751,7 @@ export default function ZeberikeGroupCorporateSite() {
               <p className="mt-3 text-sm leading-7 text-slate-300">{item.excerpt}</p>
               <div className="mt-6 flex items-center justify-between text-sm text-slate-400">
                 <span>{item.date}</span>
-                <button className="text-amber-300">Read more</button>
+                <button onClick={() => go(item.slug)} className="text-amber-300">Read more</button>
               </div>
             </Surface>
           ))}
@@ -822,6 +924,117 @@ export default function ZeberikeGroupCorporateSite() {
     </div>
   );
 
+  const renderAchievementArticle = () => (
+    <div className="space-y-8">
+      <Surface className="overflow-hidden p-8 sm:p-10">
+        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+          <div className="space-y-5">
+            <div className="flex flex-wrap gap-2">
+              <Pill>Technology</Pill>
+              <Pill>GitHub Portfolio</Pill>
+              <Pill>June 2026</Pill>
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400">Zeberike Group Builds</p>
+              <h1 className="mt-3 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+                Zeberike Group Build Portfolio: AI, Security, Automation, and Business Systems
+              </h1>
+            </div>
+            <p className="max-w-3xl text-base leading-8 text-slate-300">
+              Zeberike Group is building a practical technology portfolio around AI-enabled operations, defensive security, local-first systems, business automation, and real-economy digital products. The public GitHub account gives partners, clients, and collaborators a direct place to inspect selected work.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Button href="https://github.com/ejikezebedee">
+                Visit GitHub <Github className="h-4 w-4" />
+              </Button>
+              <Button variant="ghost" onClick={() => go("insights")}>Back to Insights</Button>
+            </div>
+          </div>
+          <Surface className="p-6">
+            <Github className="h-6 w-6 text-amber-300" />
+            <h2 className="mt-5 text-2xl font-semibold tracking-tight text-white">Public GitHub account</h2>
+            <p className="mt-3 text-sm leading-7 text-slate-300">
+              Selected repositories are published under the GitHub profile `ejikezebedee`, including projects across agent infrastructure, security tooling, automation, and Zeberike product concepts.
+            </p>
+            <a
+              href="https://github.com/ejikezebedee"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-amber-300"
+            >
+              github.com/ejikezebedee <ExternalLink className="h-4 w-4" />
+            </a>
+          </Surface>
+        </div>
+      </Surface>
+
+      <Surface className="p-8 sm:p-10">
+        <div className="max-w-4xl space-y-5">
+          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400">Why this matters</p>
+          <h2 className="text-3xl font-semibold tracking-tight text-white">From business vision to working technical assets.</h2>
+          <p className="text-base leading-8 text-slate-300">
+            The Zeberike Group technology direction is not limited to presentations or ideas. The work is being shaped into repositories, local-first tools, defensive software, and commercially useful systems that can support internal execution, client work, and future product launches.
+          </p>
+          <p className="text-base leading-8 text-slate-300">
+            The current public portfolio shows a clear operating theme: use AI and automation to improve execution, protect systems, support business operations, and build practical tools for markets that need reliable digital infrastructure.
+          </p>
+        </div>
+      </Surface>
+
+      <section className="space-y-6">
+        {sectionTitle(
+          "Selected GitHub Projects",
+          "Public repositories showing the Zeberike Group build direction.",
+          "These projects show the group’s movement across AI infrastructure, agent security, local automation, digital identity, agriculture, land records, and business-support software."
+        )}
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {githubHighlights.map((project) => (
+            <Surface key={project.repo} className="p-6">
+              <div className="flex items-start justify-between gap-4">
+                <Github className="h-5 w-5 text-amber-300" />
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-400">
+                  {project.repo}
+                </span>
+              </div>
+              <h3 className="mt-5 text-xl font-medium text-white">{project.name}</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-300">{project.summary}</p>
+              <a
+                href={project.url}
+                className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-amber-300"
+              >
+                View repository <ExternalLink className="h-4 w-4" />
+              </a>
+            </Surface>
+          ))}
+        </div>
+      </section>
+
+      <Surface className="p-8 sm:p-10">
+        <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+          <div className="space-y-5">
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400">Achievement Summary</p>
+            <h2 className="text-3xl font-semibold tracking-tight text-white">A growing public portfolio for partners and buyers to inspect.</h2>
+            <p className="text-base leading-8 text-slate-300">
+              Zeberike Group is building in the open where appropriate. Public repositories help demonstrate capability, provide technical proof, and make it easier for serious partners to understand the group’s execution posture.
+            </p>
+          </div>
+          <div className="grid gap-3">
+            {[
+              "AI memory and agent infrastructure",
+              "Defensive security and hardening tools",
+              "Automation and operations support systems",
+              "Real-economy product concepts for agriculture, land, and identity",
+              "Public GitHub profile for discovery and technical credibility",
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3 text-sm text-slate-200">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 text-amber-300" />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Surface>
+    </div>
+  );
+
   const renderInsights = () => (
     <div className="space-y-8">
       <Surface className="p-8 sm:p-10">
@@ -833,14 +1046,14 @@ export default function ZeberikeGroupCorporateSite() {
       </Surface>
       <div className="grid gap-6 xl:grid-cols-3">
         {insights.map((item) => (
-          <Surface key={item.title} className="p-6">
+          <Surface key={item.title} className={`p-6 ${item.featured ? "xl:col-span-2" : ""}`}>
             <div className="flex items-center justify-between gap-4">
               <Pill>{item.category}</Pill>
               <span className="text-xs text-slate-500">{item.date}</span>
             </div>
             <h3 className="mt-5 text-xl font-medium text-white">{item.title}</h3>
             <p className="mt-3 text-sm leading-7 text-slate-300">{item.excerpt}</p>
-            <button className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-amber-300">
+            <button onClick={() => go(item.slug)} className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-amber-300">
               Read article <ArrowRight className="h-4 w-4" />
             </button>
           </Surface>
@@ -1151,6 +1364,8 @@ export default function ZeberikeGroupCorporateSite() {
     if (serviceMap[page]) return renderServicePage(serviceMap[page]);
 
     switch (page) {
+      case "zeberike-group-github-build-portfolio":
+        return renderAchievementArticle();
       case "about":
         return renderAbout();
       case "companies":
