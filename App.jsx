@@ -272,6 +272,27 @@ const industries = [
   { name: "Public & Regulatory Stakeholders", icon: Landmark },
 ];
 
+const products = [
+  {
+    slug: "zebepay-payment-gateway",
+    name: "Zebepay Payment Gateway",
+    category: "Commercial Software Product",
+    status: "Developed and available for private sale",
+    summary:
+      "A Nigerian payment gateway, wallet, and back-office operations platform built as a commercial source-code product for fintech founders, agencies, cooperatives, and licensed operators.",
+    offer:
+      "Flexible custom pricing is available. Final price can be set to any approved amount based on buyer requirements, source access, setup support, deployment support, or white-label customization.",
+    modules: [
+      "Customer wallet and account flows",
+      "Admin operations dashboard",
+      "Transfers, beneficiaries, statements, and notifications",
+      "KYC review workflow with BVN/NIN-ready fields",
+      "Ledger model, audit logs, and reconciliation surfaces",
+      "Provider handoff points for licensed payment integrations",
+    ],
+  },
+];
+
 const insights = [
   {
     slug: "zeberike-group-github-build-portfolio",
@@ -407,6 +428,7 @@ const nav = [
   { key: "about", label: "About the Group" },
   { key: "companies", label: "Our Companies" },
   { key: "services", label: "Services" },
+  { key: "products", label: "Products" },
   { key: "industries", label: "Industries" },
   { key: "insights", label: "Insights / News" },
   { key: "contact", label: "Contact" },
@@ -629,6 +651,51 @@ export default function ZeberikeGroupCorporateSite() {
             </Surface>
           ))}
         </div>
+      </section>
+
+      <section className="space-y-6">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          {sectionTitle(
+            "Commercial Software",
+            "Zebepay is open for private commercial sale.",
+            "The public product listing lets buyers immediately understand that a developed payment gateway is available, what they can buy, and how to request pricing or access."
+          )}
+          <Button onClick={() => go("products")}>View Products <ArrowRight className="h-4 w-4" /></Button>
+        </div>
+        <Surface className="overflow-hidden p-8 sm:p-10">
+          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div className="space-y-5">
+              <div className="flex flex-wrap gap-2">
+                <Pill>Payment Gateway</Pill>
+                <Pill>Wallet Platform</Pill>
+                <Pill>For Sale</Pill>
+              </div>
+              <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                Zebepay Payment Gateway
+              </h2>
+              <p className="max-w-3xl text-base leading-8 text-slate-300">
+                A developed Nigerian payment gateway and wallet software platform available for private commercial sale with flexible, MD-approved pricing.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Button onClick={() => go("zebepay-payment-gateway")}>Open Zebepay listing</Button>
+                <Button
+                  variant="ghost"
+                  href="https://wa.me/4917640554575?text=Hello%2C%20I%20want%20to%20discuss%20buying%20Zebepay%20payment%20gateway."
+                >
+                  Enquire on WhatsApp
+                </Button>
+              </div>
+            </div>
+            <div className="grid gap-3">
+              {products[0].modules.slice(0, 5).map((item) => (
+                <div key={item} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3 text-sm text-slate-200">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-amber-300" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Surface>
       </section>
 
       <section className="space-y-6">
@@ -923,6 +990,166 @@ export default function ZeberikeGroupCorporateSite() {
       </div>
     </div>
   );
+
+  const renderProducts = () => (
+    <div className="space-y-8">
+      <Surface className="overflow-hidden p-8 sm:p-10">
+        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+          <div className="space-y-5">
+            <div className="flex flex-wrap gap-2">
+              <Pill>Commercial Software</Pill>
+              <Pill>Private Sale</Pill>
+              <Pill>Flexible Pricing</Pill>
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400">Product Listing</p>
+              <h1 className="mt-3 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+                Developed software products available from Zeberike Group.
+              </h1>
+            </div>
+            <p className="max-w-3xl text-base leading-8 text-slate-300">
+              Buyers can review available commercial software products, understand the product scope, and request pricing, source access, setup support, deployment support, or white-label customization.
+            </p>
+          </div>
+          <Surface className="p-6">
+            <ShieldCheck className="h-6 w-6 text-amber-300" />
+            <h2 className="mt-5 text-2xl font-semibold tracking-tight text-white">Controlled private delivery</h2>
+            <p className="mt-3 text-sm leading-7 text-slate-300">
+              Product source code is delivered privately after buyer qualification, commercial agreement, and MD approval. Public pages explain the offer without exposing private code.
+            </p>
+          </Surface>
+        </div>
+      </Surface>
+
+      <div className="grid gap-6 lg:grid-cols-2">
+        {products.map((product) => (
+          <Surface key={product.slug} className="p-7">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-xs uppercase tracking-[0.28em] text-amber-400">{product.category}</p>
+                <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white">{product.name}</h2>
+              </div>
+              <span className="rounded-full border border-amber-400/20 bg-amber-400/10 px-3 py-1 text-xs text-amber-300">
+                For sale
+              </span>
+            </div>
+            <p className="mt-5 text-base leading-8 text-slate-300">{product.summary}</p>
+            <p className="mt-4 rounded-2xl border border-white/10 bg-slate-950/50 p-4 text-sm leading-7 text-slate-200">
+              {product.offer}
+            </p>
+            <div className="mt-6 grid gap-3">
+              {product.modules.map((module) => (
+                <div key={module} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-slate-200">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-amber-300" />
+                  <span>{module}</span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Button onClick={() => go(product.slug)}>View product details</Button>
+              <Button
+                variant="ghost"
+                href="https://wa.me/4917640554575?text=Hello%2C%20I%20want%20to%20discuss%20buying%20Zebepay%20payment%20gateway."
+              >
+                Request price
+              </Button>
+            </div>
+          </Surface>
+        ))}
+      </div>
+    </div>
+  );
+
+  const renderZebepayProduct = () => {
+    const product = products[0];
+
+    return (
+      <div className="space-y-8">
+        <Surface className="overflow-hidden p-8 sm:p-10">
+          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+            <div className="space-y-5">
+              <div className="flex flex-wrap gap-2">
+                <Pill>Payment Gateway</Pill>
+                <Pill>Wallet Infrastructure</Pill>
+                <Pill>Private Commercial Sale</Pill>
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400">Zebepay</p>
+                <h1 className="mt-3 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+                  Zebepay Payment Gateway is developed and open for sale.
+                </h1>
+              </div>
+              <p className="max-w-3xl text-base leading-8 text-slate-300">{product.summary}</p>
+              <div className="flex flex-wrap gap-3">
+                <Button
+                  href="https://wa.me/4917640554575?text=Hello%2C%20I%20want%20to%20discuss%20buying%20Zebepay%20payment%20gateway."
+                >
+                  Request price or demo
+                </Button>
+                <Button variant="ghost" onClick={() => go("products")}>Back to products</Button>
+              </div>
+            </div>
+            <Surface className="p-6">
+              <p className="text-xs uppercase tracking-[0.28em] text-slate-500">Commercial offer</p>
+              <h2 className="mt-2 text-2xl font-semibold tracking-tight text-white">{product.status}</h2>
+              <p className="mt-3 text-sm leading-7 text-slate-300">{product.offer}</p>
+            </Surface>
+          </div>
+        </Surface>
+
+        <div className="grid gap-6 lg:grid-cols-3">
+          <Surface className="p-6 lg:col-span-2">
+            <p className="text-xs uppercase tracking-[0.28em] text-amber-400">What buyers can purchase</p>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              {product.modules.map((module) => (
+                <div key={module} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3 text-sm text-slate-200">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-amber-300" />
+                  <span>{module}</span>
+                </div>
+              ))}
+            </div>
+          </Surface>
+
+          <Surface className="p-6">
+            <p className="text-xs uppercase tracking-[0.28em] text-amber-400">Buyer options</p>
+            <div className="mt-5 space-y-3">
+              {[
+                "Source-code access",
+                "Setup and installation support",
+                "Deployment support",
+                "White-label customization",
+                "Private demo walkthrough",
+              ].map((item) => (
+                <div key={item} className="rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3 text-sm text-slate-200">
+                  {item}
+                </div>
+              ))}
+            </div>
+          </Surface>
+        </div>
+
+        <Surface className="p-8 sm:p-10">
+          <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+            <div className="space-y-4">
+              <p className="text-xs uppercase tracking-[0.35em] text-amber-400">Important boundary</p>
+              <h2 className="text-3xl font-semibold tracking-tight text-white">Software product, not a banking license.</h2>
+              <p className="max-w-3xl text-base leading-8 text-slate-300">
+                Zebepay is sold as software. Buyers are responsible for regulated approvals, banking or payment partners, production security review, KYC/AML provider setup, and live payment rail authorization.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3 lg:justify-end">
+              <Button
+                href="https://wa.me/4917640554575?text=Hello%2C%20I%20want%20to%20discuss%20buying%20Zebepay%20payment%20gateway."
+              >
+                Start buyer discussion
+              </Button>
+              <Button variant="ghost" onClick={() => go("contact")}>Contact team</Button>
+            </div>
+          </div>
+        </Surface>
+      </div>
+    );
+  };
 
   const renderAchievementArticle = () => (
     <div className="space-y-8">
@@ -1372,6 +1599,10 @@ export default function ZeberikeGroupCorporateSite() {
         return renderCompanies();
       case "services":
         return renderServices();
+      case "products":
+        return renderProducts();
+      case "zebepay-payment-gateway":
+        return renderZebepayProduct();
       case "industries":
         return renderIndustries();
       case "insights":
@@ -1479,6 +1710,7 @@ export default function ZeberikeGroupCorporateSite() {
                 <button onClick={() => go("about")} className="text-left hover:text-white">About the Group</button>
                 <button onClick={() => go("companies")} className="text-left hover:text-white">Our Companies</button>
                 <button onClick={() => go("services")} className="text-left hover:text-white">Services</button>
+                <button onClick={() => go("products")} className="text-left hover:text-white">Products</button>
                 <button onClick={() => go("industries")} className="text-left hover:text-white">Industries</button>
               </div>
             </div>

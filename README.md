@@ -2,6 +2,10 @@
 
 Official website for the Zeberike Group corporate identity.
 
+## Buyer-Visible Product Listing
+
+The website includes a public commercial software product section for Zebepay, showing that the Zebepay payment gateway has been developed and is available for private commercial sale with flexible MD-approved pricing.
+
 ## Companies
 - **Zebedee Korie Nig Ltd** (RC 1729997) — Technology, AI & Business Services
 - **Zeberike Crude Oil Marketing Nig Ltd** (RC 1709207) — Energy, Oil & Gas Services
